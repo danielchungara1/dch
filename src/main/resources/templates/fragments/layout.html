@@ -1,0 +1,154 @@
+<!doctype html>
+<html th:fragment="layout (template, menu)">
+<head>
+<meta charset="UTF-8">
+<title>DCH</title>
+<link rel="stylesheet" type="text/css"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+</head>
+
+<style>
+header, nav>ul, .main-footer, .nav-horizontal {
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+}
+
+.nav-horizontal>li {
+	align-items: stretch;
+	width: 100%;
+}
+
+li {
+	padding: 0.15em;
+}
+
+.thumbnail-publicacion {
+	background-color: rgba(0, 0, 0, 0.1);
+	border: thin solid rgba(0, 0, 0, 0.2);
+	padding:0.5em;
+	margin-top:0.5em;
+}
+.thin-padding{
+	padding:0.5em;
+}
+
+.thin-margin{
+	margin:0.25em;
+}
+body {
+	background-color: yellow;
+}
+
+.secondary-footer {
+	display: flex;
+	justify-content: flex-start;
+	padding: 1em;
+}
+img{
+ padding: 0.5em;
+}
+
+</style>
+
+<body>
+	<header class="container">
+		<div>
+			<b>Ecommerce-DCH</b>
+		</div>
+		<div>
+			<input size="90" type="text"
+				placeholder="Buscar productos, marcas y mas..."> <span
+				class="glyphicon glyphicon-search"></span>
+		</div>
+		<div>
+			<span class="glyphicon glyphicon-thumbs-up"></span> Compra en 12
+			cuotas sin tarjeta
+		</div>
+	</header>
+
+	<nav class="container">
+		<ul class="nav">
+			<li>Categorias</li>
+			<li>Historial</li>
+			<li>Descuentos</li>
+			<li>Ofertas</li>
+			<li>Vender</li>
+			<li>Ayuda</li>
+			<li>Daniel</li>
+			<li>Compras</li>
+			<li>Favoritos</li>
+			<li><span class="glyphicon glyphicon-bell"></span></li>
+			<li>Ayuda</li>
+
+		</ul>
+	</nav>
+
+
+	<div th:replace="${template}" />
+
+
+	<footer class="container">
+		<div class="main-footer">
+			<ul class="nav">
+				<b>Acerca de</b>
+				<li>DCH</li>
+				<li>Ivestor relations</li>
+				<li>Tendencias</li>
+			</ul>
+			<ul class="nav">
+				<b>Otros Sitios</b>
+				<li>Developers</li>
+				<li>DCH Pago</li>
+				<li>DCH Shops</li>
+				<li>DCH Envios</li>
+				<li>DCH Publicidad</li>
+				<li>DCH Ideas</li>
+
+			</ul>
+
+			<ul class="nav">
+				<b>Ayuda</b>
+				<li>Comprar</li>
+				<li>Vender</li>
+				<li>Resolucion de Problemas</li>
+				<li>Centro de Seguridad</li>
+			</ul>
+			<ul class="nav">
+				<b>Redes Sociales</b>
+				<li>Twitter</li>
+				<li>Facebook</li>
+				<li>Instagram</li>
+				<li>Youtube</li>
+			</ul>
+			<ul class="nav">
+				<b>Mi cuenta</b>
+				<li>Resumen</li>
+				<li>Favoritos</li>
+				<li>Vender</li>
+				<li>Comprar</li>
+			</ul>
+		</div>
+
+		<div>
+			<ul class="nav secondary-footer">
+				<li>Trabaja con nosotros</li>
+				<li>Terminos y condiciones</li>
+				<li>Politicas y privacidad</li>
+				<li>Ayuda</li>
+			</ul>
+		</div>
+		<div class="container">
+			<small>Copyright 2019-2029 DCH</small>
+		</div>
+	</footer>
+
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+
+
+</body>
