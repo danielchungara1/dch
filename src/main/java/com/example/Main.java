@@ -59,6 +59,11 @@ public class Main {
 
   @RequestMapping("/")
   String index() {
+    return "index";
+  }
+  
+  @RequestMapping("/publicacion")
+  String publicacion() {
     return "publicacion";
   }
 
