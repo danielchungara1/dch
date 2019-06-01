@@ -45,13 +45,13 @@ import java.util.Map;
 @SpringBootApplication
 public class Main {
 
-/*	
+
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
   @Autowired
   private DataSource dataSource;
-*/
+
 	
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
@@ -67,7 +67,7 @@ public class Main {
     return "publicacion";
   }
 
-  /*
+
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
@@ -99,6 +99,6 @@ public class Main {
       return new HikariDataSource(config);
     }
   }
-*/
+
 
 }
