@@ -11,8 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.example.BaseDatos;
-import com.example.Producto;
-import com.example.ServiceBD;
 
 public class TestBaseDatos {
 
@@ -120,18 +118,6 @@ public class TestBaseDatos {
 
 	}// fin test
 	
-	// Se obtiene el producto dado el id y se muestra su id, url imagen, descripcion
-		@Test
-		public void testGetProductoById() throws Exception {
-			ServiceBD bd = new ServiceBD();
-			Producto p = bd.getProductoById("2");
-			
-			assertThat(p.precio, Matchers.notNullValue());
-			assertThat(p.url, Matchers.notNullValue());
-			assertThat(p.id_producto, Matchers.notNullValue());
 
-			System.out.println(p.precio + "|" + p.url+ "|" + p.id_producto);
-
-		}// fin test
 
 }
