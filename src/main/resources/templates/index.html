@@ -40,6 +40,7 @@
 	<!-- fin carusel -->
 
 	<div class="container">
+		<!-- Medios de pago -->
 		<ul class="nav nav-horizontal">
 			<li class="nav-item"><img alt=""
 				src="svg-gliphicons\05-commerce\ecommerce-payment-hand-creditcard.svg">Hasta
@@ -58,150 +59,59 @@
 	<!-- fin medios de pago -->
 
 	<div class="container">
+		<!-- Productos basados en tu ultima visita -->
 		<span>Basado en tu ultima visita</span> <span><b>Ver
 				historial</b></span>
 		<ul class="nav nav-horizontal">
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
+			<li th:each="producto : ${productos}" >
+				<div class="thumbnail thumbnail-publicacion " >
+					<a th:href="@{/publicacion/(id_producto=2)}" > <img th:src="${producto.url}"
+						alt="tablet"  class="max-height-250"></a>
+					<div class="caption bold-text md-text">
+						<span>$</span> <span th:text="${producto.precio}"></span>
+
 					</div>
 				</div>
 			</li>
 		</ul>
 	</div>
 	<!-- fin basado en tu ultima visita -->
-	
+
 	<div class="container">
-		<span>Recomendado para ti</span> <span><b>Ver
-				mas</b></span>
+		<!-- Productos recomendados para ti -->
+		<span>Recomendado para ti</span> <span><b>Ver mas</b></span>
 		<ul class="nav nav-horizontal">
-			<li>							
+			<li th:each="producto : ${productos}">
 				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
+					<img th:src="${producto.url}" alt="tablet" class="max-height-250">
+					<div class="caption bold-text md-text">
+						<span>$</span> <span th:text="${producto.precio}"></span>
+
 					</div>
 				</div>
 			</li>
 		</ul>
 	</div>
 	<!-- fin basado en tu ultima visita -->
-	
+
 	<div class="container">
-		<span>Ofertas y Promociones</span> <span><b>Ver
-				mas</b></span>
+		<!-- Productos ofertas y promociones -->
+		<span>Ofertas y Promociones</span> <span><b>Ver mas</b></span>
 		<ul class="nav nav-horizontal">
-			<li>							
+			<li th:each="producto : ${productos}">
 				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
-					</div>
-				</div>
-			</li>
-			<li>							
-				<div class="thumbnail thumbnail-publicacion">
-					<img src="products/tablet.jpg" alt="tablet">
-					<div class="caption">
-						<h4>$3500</h4>
+					<img th:src="${producto.url}" alt="tablet" class="max-height-250">
+					<div class="caption bold-text md-text">
+						<span>$</span> <span th:text="${producto.precio}"></span>
+
 					</div>
 				</div>
 			</li>
 		</ul>
 	</div>
 	<!-- fin basado en tu ultima visita -->
-	
-	
+
+
 
 </body>
 </html>
