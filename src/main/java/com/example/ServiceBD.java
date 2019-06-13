@@ -32,11 +32,11 @@ public class ServiceBD {
 		sentenciaSql = ConexionDb.prepareStatement(query);
 		ResultSet rsproducto = sentenciaSql.executeQuery();
 		
-		query = "SELECT  * FROM Imagen i where id_producto="+ 2;
+		query = "SELECT  * FROM Imagen i where id_producto="+ id_producto;
 		sentenciaSql = ConexionDb.prepareStatement(query);
 		ResultSet rsimagenes = sentenciaSql.executeQuery();
 		
-		query = "SELECT  * FROM Caracteristica c where id_producto="+ 2;
+		query = "SELECT  * FROM Caracteristica c where id_producto="+ id_producto;
 		sentenciaSql = ConexionDb.prepareStatement(query);
 		ResultSet rscaracteristicas = sentenciaSql.executeQuery();
 		
