@@ -9,15 +9,26 @@
 			<div class="row thumbnail-publicacion">
 				<div class="col-md-2">
 					<div th:each="imagen : ${producto.imagenes}">
-						<img th:src="${imagen.url}" class="img-responsive center-block "
-							alt="imagen.descripcion" />
+						<img th:src="${imagen.url}"
+							class="img-responsive center-block mini-vertical-gallery"
+							th:alt="${imagen.descripcion}" />
 					</div>
 				</div>
 				<div class="col-md-10">
 					<img th:src="${producto.imagenes.get(0).url}"
-						class="img-responsive center-block "
-						alt="${producto.imagenes.get(0).descripcion" />
+						class="img-responsive center-block"
+						th:alt="${producto.imagenes.get(0).descripcion}"
+						id="main-image-gallery" />
 				</div>
+				<script type="text/javascript">
+				$(function() {
+					   $('.mini-vertical-gallery').hover( function(){
+						   var imgHovered = $(this).attr('src');
+						   $('#main-image-gallery').attr('src', imgHovered);					      
+					   });//cierra primer selector
+					});//cierra function selector 
+				</script>
+				
 			</div>
 			<div class="row thumbnail-publicacion">
 				<h3>Descripcion</h3>
@@ -27,8 +38,8 @@
 				<h3>Caracteristicas</h3>
 				<ul th:each="caracteristica : ${producto.caracteristicas}">
 					<li>
-						<div th:text="${caracteristica.tipo}"></div>
-						<b th:text="${caracteristica.valor}"></b>
+						<div th:text="${caracteristica.tipo}"></div> <b
+						th:text="${caracteristica.valor}"></b>
 					</li>
 				</ul>
 			</div>
