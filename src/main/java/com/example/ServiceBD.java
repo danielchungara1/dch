@@ -40,8 +40,12 @@ public class ServiceBD {
 		sentenciaSql = ConexionDb.prepareStatement(query);
 		ResultSet rscaracteristicas = sentenciaSql.executeQuery();
 		
+		query = "SELECT  * FROM Publicacion p where id_producto="+ id_producto;
+		sentenciaSql = ConexionDb.prepareStatement(query);
+		ResultSet rspublicacion = sentenciaSql.executeQuery();
+		
 
-		Producto p = Producto.factoryProducto(rsproducto, rsimagenes, rscaracteristicas);
+		Producto p = Producto.factoryProducto(rsproducto, rsimagenes, rscaracteristicas,rspublicacion);
 		
 		return p;
 	}

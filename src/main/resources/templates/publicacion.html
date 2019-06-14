@@ -5,45 +5,42 @@
 <body>
 	<div class="container">
 		<div class="col-md-7 thin-margin">
+			<!-- Imagenes 2 x 10-->
 			<div class="row thumbnail-publicacion">
-				<img th:src="${producto.imagenes[0].url}" class="img-responsive center-block "
-					alt="tablet" />
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-					excepturi sequi ratione officiis omnis laboriosam minus id in fuga
-					voluptates dolorem possimus nihil odit ea suscipit rem voluptas
-					nulla quisquam!</p>
+				<div class="col-md-2">
+					<div th:each="imagen : ${producto.imagenes}">
+						<img th:src="${imagen.url}" class="img-responsive center-block "
+							alt="imagen.descripcion" />
+					</div>
+				</div>
+				<div class="col-md-10">
+					<img th:src="${producto.imagenes.get(0).url}"
+						class="img-responsive center-block "
+						alt="${producto.imagenes.get(0).descripcion" />
+				</div>
 			</div>
 			<div class="row thumbnail-publicacion">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-					excepturi sequi ratione officiis omnis laboriosam minus id in fuga
-					voluptates dolorem possimus nihil odit ea suscipit rem voluptas
-					nulla quisquam!</p>
+				<h3>Descripcion</h3>
+				<p th:text="${producto.descripcion}"></p>
 			</div>
 			<div class="row thumbnail-publicacion">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-					excepturi sequi ratione officiis omnis laboriosam minus id in fuga
-					voluptates dolorem possimus nihil odit ea suscipit rem voluptas
-					nulla quisquam!</p>
-			</div>
-			<div class="row thumbnail-publicacion">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-					excepturi sequi ratione officiis omnis laboriosam minus id in fuga
-					voluptates dolorem possimus nihil odit ea suscipit rem voluptas
-					nulla quisquam!</p>
-			</div>
-			<div class="row thumbnail-publicacion">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-					excepturi sequi ratione officiis omnis laboriosam minus id in fuga
-					voluptates dolorem possimus nihil odit ea suscipit rem voluptas
-					nulla quisquam!</p>
+				<h3>Caracteristicas</h3>
+				<ul th:each="caracteristica : ${producto.caracteristicas}">
+					<li>
+						<div th:text="${caracteristica.tipo}"></div>
+						<b th:text="${caracteristica.valor}"></b>
+					</li>
+				</ul>
 			</div>
 		</div>
 		<!-- fin 1ra columna -->
 
 		<div class=" col-md-4 thin-margin">
 			<div class="row thumbnail-publicacion">
-				<h1>Tablet</h1>
-				<h2>$1000</h2>
+				<h3 th:text="${producto.publicacion.titulo}"></h3>
+				<h2>
+					<span>$</span> <span th:text="${producto.precio}"></span>
+				</h2>
 				<button type="button" class="btn btn-default">
 					<span><img
 						src="/svg-gliphicons/05-commerce/ecommerce-payment-hand-cash.svg"
@@ -54,25 +51,10 @@
 						src="/svg-gliphicons/05-commerce/ecommerce-business-shopping-add-to-cart.svg"
 						alt="" />Agregar</span>
 				</button>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-					excepturi sequi ratione officiis omnis laboriosam minus id in fuga
-					voluptates dolorem possimus nihil odit ea suscipit rem voluptas
-					nulla quisquam!</p>
 			</div>
 
 			<div class="row thumbnail-publicacion">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-					excepturi sequi ratione officiis omnis laboriosam minus id in fuga
-					voluptates dolorem possimus nihil odit ea suscipit rem voluptas
-					nulla quisquam!</p>
-			</div>
-			<div class="row thumbnail-publicacion">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-					excepturi sequi ratione officiis omnis laboriosam minus id in fuga
-					voluptates dolorem possimus nihil odit ea suscipit rem voluptas
-					nulla quisquam!</p>
-			</div>
-			<div class="row thumbnail-publicacion">
+				<h3>Informacion del Vendedor</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
 					excepturi sequi ratione officiis omnis laboriosam minus id in fuga
 					voluptates dolorem possimus nihil odit ea suscipit rem voluptas

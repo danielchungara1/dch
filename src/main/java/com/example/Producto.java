@@ -11,6 +11,7 @@ public class Producto {
 
 	public List<Imagen> imagenes;
 	public List<Caracteristica> caracteristicas;
+	public Publicacion publicacion;
 	
 	public static Producto factoryProducto(ResultSet rs) throws SQLException {
 		Producto p = new Producto();
@@ -26,7 +27,7 @@ public class Producto {
 		return p;
 	}
 
-	public static Producto factoryProducto(ResultSet rsproducto,ResultSet rsimagenes, ResultSet rscaracteristicas) throws SQLException {
+	public static Producto factoryProducto(ResultSet rsproducto,ResultSet rsimagenes, ResultSet rscaracteristicas, ResultSet rspublicacion) throws SQLException {
 		Producto p = new Producto();
 		while (rsproducto.next()) {
 			p.precio = rsproducto.getString("precio");
@@ -36,7 +37,8 @@ public class Producto {
 
 		p.imagenes = Imagen.factoryImagenes(rsimagenes);
 		p.caracteristicas = Caracteristica.factoryCaracteristicas(rscaracteristicas);
-		
+		p.publicacion = Publicacion.factoryPublicacion(rspublicacion); 
+				
 		return p;
 	}
 	
