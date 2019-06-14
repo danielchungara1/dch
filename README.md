@@ -1,3 +1,7 @@
+# Simple Snapshots
+![alt text](https://raw.githubusercontent.com/danielchungara1/dch/master/snapshots/index.JPG)
+![alt text](https://raw.githubusercontent.com/danielchungara1/dch/master/snapshots/publicacion.JPG)
+
 # java-getting-started
 
 A barebones Java app, which can easily be deployed to Heroku.
