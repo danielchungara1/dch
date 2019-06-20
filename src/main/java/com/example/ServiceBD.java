@@ -54,12 +54,25 @@ public class ServiceBD {
 
 		List<Producto> lp = new ArrayList<Producto>();
 		
-		List<String> lids = this.getListIdsProducto(n);
-		
+		//List<String> lids = this.getListIdsProducto(n);
+		List<String> lids = this.getListIdsHardcodeado();
+
 		for (String id: lids) {
 			lp.add(this.getProductoById(id));
 		}
 		return lp;
+	}
+
+
+	private List<String> getListIdsHardcodeado() {
+		// TODO Auto-generated method stub
+		List<String> l = new ArrayList<String>();
+		l.add("7");
+		l.add("8");
+		l.add("9");
+		l.add("10");
+		l.add("11");
+		return l;
 	}
 
 
@@ -78,5 +91,7 @@ public class ServiceBD {
 		}
 		return lids;
 	}
+	
+	
 	
 }

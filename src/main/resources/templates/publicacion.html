@@ -5,7 +5,7 @@
 <body>
 	<div class="container">
 		<div class="col-md-7 thin-margin">
-			<!-- Imagenes 2 x 10-->
+			<!-- 1ra columna -->
 			<div class="row thumbnail-publicacion">
 				<div class="col-md-2">
 					<div th:each="imagen : ${producto.imagenes}">
@@ -20,15 +20,8 @@
 						th:alt="${producto.imagenes.get(0).descripcion}"
 						id="main-image-gallery" />
 				</div>
-				<script type="text/javascript">
-				$(function() {
-					   $('.mini-vertical-gallery').hover( function(){
-						   var imgHovered = $(this).attr('src');
-						   $('#main-image-gallery').attr('src', imgHovered);					      
-					   });//cierra primer selector
-					});//cierra function selector 
-				</script>
-				
+
+
 			</div>
 			<div class="row thumbnail-publicacion">
 				<h3>Descripcion</h3>
@@ -36,8 +29,9 @@
 			</div>
 			<div class="row thumbnail-publicacion">
 				<h3>Caracteristicas</h3>
-				<ul th:each="caracteristica : ${producto.caracteristicas}">
-					<li>
+				<ul class="sin-vinietas row">
+					<li th:each="caracteristica : ${producto.caracteristicas}"
+						class="col-md-6">
 						<div th:text="${caracteristica.tipo}"></div> <b
 						th:text="${caracteristica.valor}"></b>
 					</li>
@@ -55,7 +49,7 @@
 				<button type="button" class="btn btn-default">
 					<span><img
 						src="/svg-gliphicons/05-commerce/ecommerce-payment-hand-cash.svg"
-						alt="" /></span>Comprar
+						alt="" /></span>Comprar 
 				</button>
 				<button type="button" class="btn btn-default">
 					<span><img
@@ -75,5 +69,15 @@
 		<!-- fin 2da columna -->
 	</div>
 	<!-- fin container-->
+	<script type="text/javascript">
+		$(function() {
+			$('.mini-vertical-gallery').hover(function() {
+				var imgHovered = $(this).attr('src');
+				$('#main-image-gallery').attr('src', imgHovered);
+			});//cierra primer selector
+		});//cierra function selector
+	</script>
 </body>
+
+
 </html>
