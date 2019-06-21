@@ -1,11 +1,7 @@
-<!-- ********************************************************************
-COMENTARIOS
-********************************************************************* -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{fragments/layout :: layout (~{::body},'index')}"
 >
-
 <body>
 	<!--************************************CAROUSEL********************************** -->
 	<div class="container ">
@@ -39,8 +35,7 @@ COMENTARIOS
 			</div>
 		</div>
 	</div>
-	<!--************************************CAROUSEL********************************** -->
-
+	<!--**************************MEDIOS DE PAGO************************************* -->
 	<div class="container">
 		<!-- Medios de pago -->
 		<ul class="nav nav-horizontal">
@@ -58,18 +53,13 @@ COMENTARIOS
 			>Mas medios de pago</li>
 		</ul>
 	</div>
-	<!-- fin medios de pago -->
-
+	<!--********************BASADO EN TU ULTIMA VISITA******************************* -->
 	<div class="container">
-		<!-- Productos basados en tu ultima visita -->
 		<div>
 			Basado en tu ultima visita<b>Ver historial</b>
 		</div>
-		<!--''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''-->
-
 		<div th:each="producto : ${productos}"
-			class="thumbnail thumbnail-publicacion "
-			style="display: inline-block;"
+			class="thumbnail thumbnail-publicacion inline-block"
 		>
 			<a th:href="@{/publicacion/(id_producto=${producto.id_producto})}">
 				<img th:src="${producto.imagenes.get(0).url}"
@@ -81,8 +71,7 @@ COMENTARIOS
 				<span>$</span> <span th:text="${producto.precio}"></span>
 			</div>
 		</div>
-		<!--''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''-->
 	</div>
-	<!-- fin basado en tu ultima visita -->
+	<!--********************CONTAINER ********************************************* -->
 </body>
 </html>

@@ -1,74 +1,88 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{fragments/layout :: layout (~{::body},'publicacion')}">
-
+	th:replace="~{fragments/layout :: layout (~{::body},'publicacion')}"
+>
 <body>
 	<div class="container">
-		<div class="col-md-7 thin-margin">
-			<!-- 1ra columna -->
-			<div class="row thumbnail-publicacion">
-				<div class="col-md-2">
-					<div th:each="imagen : ${producto.imagenes}">
-						<img th:src="${imagen.url}"
-							class="img-responsive center-block mini-vertical-gallery"
-							th:alt="${imagen.descripcion}" />
+		<div class="row">
+			<!--**********************************COL1********************************** -->
+			<div class="col-7">
+				<div class="row thumbnail-publicacion">
+					<div class="col-2">
+						<div th:each="imagen : ${producto.imagenes}">
+							<img th:src="${imagen.url}"
+								class="img-responsive center-block xs-image"
+								th:alt="${imagen.descripcion}"
+							/>
+						</div>
+					</div>
+					<div class="col-10">
+						<img th:src="${producto.imagenes.get(0).url}"
+							class="img-responsive center-block xl-image"
+							th:alt="${producto.imagenes.get(0).descripcion}"
+							id="main-image-gallery"
+						/>
 					</div>
 				</div>
-				<div class="col-md-10">
-					<img th:src="${producto.imagenes.get(0).url}"
-						class="img-responsive center-block"
-						th:alt="${producto.imagenes.get(0).descripcion}"
-						id="main-image-gallery" />
+				<!--**********************************COL1.DESCRIPCION******************************* -->
+				<div class="row thumbnail-publicacion">
+					<div class="col">
+						<h3>Descripcion</h3>
+						<p th:text="${producto.descripcion}"></p>
+					</div>
 				</div>
-
-
+				<!--**********************************COL1.CARACTERISTICAS*************************** -->
+				<div class="row thumbnail-publicacion">
+					<div class="col">
+						<h3>Caracteristicas</h3>
+						<ul class="sin-vinietas row">
+							<li th:each="caracteristica : ${producto.caracteristicas}"
+								class="col-md-6"
+							>
+								<div th:text="${caracteristica.tipo}"></div> <b
+								th:text="${caracteristica.valor}"
+							></b>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<div class="row thumbnail-publicacion">
-				<h3>Descripcion</h3>
-				<p th:text="${producto.descripcion}"></p>
-			</div>
-			<div class="row thumbnail-publicacion">
-				<h3>Caracteristicas</h3>
-				<ul class="sin-vinietas row">
-					<li th:each="caracteristica : ${producto.caracteristicas}"
-						class="col-md-6">
-						<div th:text="${caracteristica.tipo}"></div> <b
-						th:text="${caracteristica.valor}"></b>
-					</li>
-				</ul>
+			<!--**********************************COL2********************************** -->
+			<div class="col-4 m-margin-l">
+				<!--************************COL2.INTRODUCCION************************************************ -->
+				<div class="row thumbnail-publicacion">
+					<div class="col">
+						<h3 th:text="${producto.publicacion.titulo}"></h3>
+						<h2>
+							<span>$</span> <span th:text="${producto.precio}"></span>
+						</h2>
+						<button type="button" class="btn btn-default">
+							<span><img
+								src="/svg-gliphicons/05-commerce/ecommerce-payment-hand-cash.svg"
+								alt=""
+							/></span>Comprar
+						</button>
+						<button type="button" class="btn btn-default">
+							<span><img
+								src="/svg-gliphicons/05-commerce/ecommerce-business-shopping-add-to-cart.svg"
+								alt=""
+							/>Agregar</span>
+						</button>
+					</div>
+				</div>
+				<div class="row thumbnail-publicacion">
+					<!--**********************************COL2.VENDEDOR********************************* -->
+					<div class="col">
+						<h3>Informacion del Vendedor</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							Eos excepturi sequi ratione officiis omnis laboriosam minus id in
+							fuga voluptates dolorem possimus nihil odit ea suscipit rem
+							voluptas nulla quisquam!</p>
+					</div>
+				</div>
 			</div>
 		</div>
-		<!-- fin 1ra columna -->
-
-		<div class=" col-md-4 thin-margin">
-			<div class="row thumbnail-publicacion">
-				<h3 th:text="${producto.publicacion.titulo}"></h3>
-				<h2>
-					<span>$</span> <span th:text="${producto.precio}"></span>
-				</h2>
-				<button type="button" class="btn btn-default">
-					<span><img
-						src="/svg-gliphicons/05-commerce/ecommerce-payment-hand-cash.svg"
-						alt="" /></span>Comprar 
-				</button>
-				<button type="button" class="btn btn-default">
-					<span><img
-						src="/svg-gliphicons/05-commerce/ecommerce-business-shopping-add-to-cart.svg"
-						alt="" />Agregar</span>
-				</button>
-			</div>
-
-			<div class="row thumbnail-publicacion">
-				<h3>Informacion del Vendedor</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-					excepturi sequi ratione officiis omnis laboriosam minus id in fuga
-					voluptates dolorem possimus nihil odit ea suscipit rem voluptas
-					nulla quisquam!</p>
-			</div>
-		</div>
-		<!-- fin 2da columna -->
 	</div>
-	<!-- fin container-->
 	<script type="text/javascript">
 		$(function() {
 			$('.mini-vertical-gallery').hover(function() {
@@ -78,6 +92,4 @@
 		});//cierra function selector
 	</script>
 </body>
-
-
 </html>

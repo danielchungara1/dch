@@ -76,7 +76,7 @@ public class ServiceBD {
 	}
 
 
-	private List<String> getListIdsProducto(int n) throws SQLException {
+	public List<String> getListIdsProducto(int n) throws SQLException {
 		List<String> lids = new ArrayList<String>();
 		ConexionDb = bd.conectarMySQL();
 
