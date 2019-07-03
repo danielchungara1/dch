@@ -1,4 +1,4 @@
-package com.example;
+package com.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,8 +11,11 @@ public class Producto {
 
 	public List<Imagen> imagenes;
 	public List<Caracteristica> caracteristicas;
-	public Publicacion publicacion;
 	
+
+	
+	/*************************DEPRECADO***************************/
+	@Deprecated
 	public static Producto factoryProducto(ResultSet rs) throws SQLException {
 		Producto p = new Producto();
 		while (rs.next()) {
@@ -27,6 +30,7 @@ public class Producto {
 		return p;
 	}
 
+	@Deprecated
 	public static Producto factoryProducto(ResultSet rsproducto,ResultSet rsimagenes, ResultSet rscaracteristicas, ResultSet rspublicacion) throws SQLException {
 		Producto p = new Producto();
 		while (rsproducto.next()) {
@@ -37,9 +41,15 @@ public class Producto {
 
 		p.imagenes = Imagen.factoryImagenes(rsimagenes);
 		p.caracteristicas = Caracteristica.factoryCaracteristicas(rscaracteristicas);
-		p.publicacion = Publicacion.factoryPublicacion(rspublicacion); 
+		//p.publicacion = Publicacion.factoryPublicacion(rspublicacion); 
 				
 		return p;
+	}
+	@Deprecated
+	public static Producto factoryProducto(String id_producto) {
+		// TODO Auto-generated method stub
+		
+		return null;
 	}
 	
 	

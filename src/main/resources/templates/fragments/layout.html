@@ -104,11 +104,11 @@ img {
 	height: 150px;
 }
 
-.xs-image{
+.xs-image {
 	width: 100px;
 	height: 100px;
-
 }
+
 .s-image {
 	width: 150px;
 	height: 150px;
@@ -118,44 +118,50 @@ img {
 	width: 200px;
 	height: 200px;
 }
+
 .l-image {
 	width: 300px;
 	height: 300px;
 }
+
 .xl-image {
 	width: 400px;
 	height: 400px;
 }
+
 .xxl-image {
 	width: 600px;
 	height: 600px;
 }
 
-.s-margin-l{
+.s-margin-l {
 	margin-left: 0.1em;
 }
-.m-margin-l{
+
+.m-margin-l {
 	margin-left: 0.5em;
 }
-.l-margin-l{
+
+.l-margin-l {
 	margin-left: 1em;
 }
 
+.middle-padding{
+	padding: 0.65em;
+}
 </style>
 <body>
 	<header class="container">
-		<div>
-			<a th:href="@{/}" class="text-color-black"> <b>Ecommerce-DCH</b></a>
+		<div class="middle-padding">
+			<a th:href="@{/}" class="text-color-black"><span><b>DCH
+				</b></span></a>
 		</div>
 		<div>
 			<input size="90" type="text"
 				placeholder="Buscar productos, marcas y mas..."
-			> <span class="glyphicon glyphicon-search"></span>
+			> <img src="\svg-gliphicons\07-ui-controls\search.svg" alt="" />
 		</div>
-		<div>
-			<span class="glyphicon glyphicon-thumbs-up"></span> Compra en 12
-			cuotas sin tarjeta
-		</div>
+		<div class="middle-padding">Compra en 12 cuotas sin tarjeta</div>
 	</header>
 	<nav class="container">
 		<ul class="nav nav-horizontal">

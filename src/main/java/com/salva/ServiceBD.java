@@ -1,4 +1,4 @@
-package com.example;
+package com.salva;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,24 +9,26 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.data.ManagerMySql;
+import com.model.Producto;
+import com.model.Publicacion;
+
 @Service
 public class ServiceBD {
 	Connection ConexionDb;
 	String query;
 	PreparedStatement sentenciaSql;
 	ResultSet rs;
-	BaseDatos bd;
+	ManagerMySql bd;
 
 	public ServiceBD() {
 		// Instancias la clase que hemos creado anteriormente
-		bd = new BaseDatos();
+		bd = new ManagerMySql();
 
 	}
-
-	
 	public Producto getProductoById(String id_producto) throws Exception {
 
-		ConexionDb = bd.conectarMySQL();
+		ConexionDb = ManagerMySql.getConnection();
 
 		query = "SELECT  * FROM Producto p where id_producto="+ id_producto;
 		sentenciaSql = ConexionDb.prepareStatement(query);
@@ -44,8 +46,15 @@ public class ServiceBD {
 		sentenciaSql = ConexionDb.prepareStatement(query);
 		ResultSet rspublicacion = sentenciaSql.executeQuery();
 		
-
 		Producto p = Producto.factoryProducto(rsproducto, rsimagenes, rscaracteristicas,rspublicacion);
+
+		
+		/**
+		query = "SELECT  * FROM Vendedor v where id_vendedor="+ p.publicacion.id_vendedor;
+		sentenciaSql = ConexionDb.prepareStatement(query);
+		ResultSet rsvendedor = sentenciaSql.executeQuery();
+			**/
+		
 		
 		return p;
 	}
@@ -78,7 +87,7 @@ public class ServiceBD {
 
 	public List<String> getListIdsProducto(int n) throws SQLException {
 		List<String> lids = new ArrayList<String>();
-		ConexionDb = bd.conectarMySQL();
+		ConexionDb = ManagerMySql.getConnection();
 
 		query = "SELECT  p.id_producto FROM Producto p limit " + n;
 		sentenciaSql = ConexionDb.prepareStatement(query);
@@ -91,6 +100,21 @@ public class ServiceBD {
 		}
 		return lids;
 	}
+	
+	public Publicacion getPublicacionById(String id_publicacion) throws Exception {
+
+		ConexionDb = ManagerMySql.getConnection();
+
+		query = "SELECT  * FROM Publicacion p where id_publicacion="+ id_publicacion;
+		sentenciaSql = ConexionDb.prepareStatement(query);
+		ResultSet rspublicacion = sentenciaSql.executeQuery();
+		
+		Publicacion p = Publicacion.factoryPublicacion(rspublicacion);
+
+		return p;
+	}
+
+
 	
 	
 	

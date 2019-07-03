@@ -10,7 +10,7 @@ import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.example.BaseDatos;
+import com.data.ManagerMySql;
 
 public class TestBaseDatos {
 
@@ -22,9 +22,9 @@ public class TestBaseDatos {
 	@Before
 	public void setUp() throws Exception {
 		// Instancias la clase que hemos creado anteriormente
-		BaseDatos db = new BaseDatos();
+		ManagerMySql db = new ManagerMySql();
 		// Llamas al método que tiene la clase y te devuelve una conexión
-		ConexionDb = db.conectarMySQL();
+		ConexionDb = db.getConnection();
 		System.out.println("******************************");
 		System.out.println("Test");
 		System.out.println("******************************");

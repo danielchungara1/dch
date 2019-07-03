@@ -1,3 +1,4 @@
+package com.model;
 /*
 
 
@@ -21,9 +22,10 @@
  * limitations under the License.
  */
 
-package com.example;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -31,33 +33,42 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+import com.data.RepoObjetosInterface;
+
+
+
 @Controller
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages={"com.data", "com.model"})
 public class Main {
 	
-	ServiceBD bd;
 	
+
 	@Autowired
-	public void SetServiceBD(ServiceBD bd){
-		this.bd = bd;
-	}
+	@Qualifier("RepoHDB") 
+	RepoObjetosInterface repoObjetos;
 	
+	
+
 	public static void main(String[] args) throws Exception {
+
 		SpringApplication.run(Main.class, args);
 	}
 
 	@RequestMapping("/")
 	String index(Model model) throws Exception{
-		
-		model.addAttribute("productos",bd.getProductos(5));
+
+		model.addAttribute("publicaciones",repoObjetos.getPublicacionesByIdVendedor("1", 5));
 	
 		return "index";
 	}
 
 	@RequestMapping("/publicacion")
-	String publicacion(Model model, @RequestParam("id_producto") String id_producto)throws Exception {
+	String publicacion(Model model, @RequestParam("id_vendedor") String id_vendedor, @RequestParam("id_publicacion") String id_publicacion)throws Exception {
 		
-		model.addAttribute("producto",bd.getProductoById(id_producto));
+		Vendedor vend = repoObjetos.getVendedorById(id_vendedor);
+		Publicacion pub = vend.getPublicacion(id_publicacion);
+		model.addAttribute("publicacion",pub);
 		return "publicacion";
 	}
 }

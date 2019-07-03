@@ -4,31 +4,42 @@
 >
 <body>
 	<div class="container">
+		<!--**********************************COL1********************************** -->
 		<div class="row">
-			<!--**********************************COL1********************************** -->
+			<!--**********************************COL1.IMAGENES********************************** -->
 			<div class="col-7">
 				<div class="row thumbnail-publicacion">
 					<div class="col-2">
-						<div th:each="imagen : ${producto.imagenes}">
+						<div th:each="imagen : ${publicacion.producto.imagenes}">
 							<img th:src="${imagen.url}"
-								class="img-responsive center-block xs-image"
+								class="img-responsive center-block xs-image mini-vertical-gallery"
 								th:alt="${imagen.descripcion}"
 							/>
 						</div>
 					</div>
 					<div class="col-10">
-						<img th:src="${producto.imagenes.get(0).url}"
+						<img th:src="${publicacion.producto.imagenes.get(0).url}"
 							class="img-responsive center-block xl-image"
-							th:alt="${producto.imagenes.get(0).descripcion}"
+							th:alt="${publicacion.producto.imagenes.get(0).descripcion}"
 							id="main-image-gallery"
 						/>
 					</div>
+					<script type="text/javascript">
+						$(function() {
+							$('.mini-vertical-gallery').hover(
+									function() {
+										var imgHovered = $(this).attr('src');
+										$('#main-image-gallery').attr('src',
+												imgHovered);
+									});//cierra primer selector
+						});//cierra function selector
+					</script>
 				</div>
 				<!--**********************************COL1.DESCRIPCION******************************* -->
 				<div class="row thumbnail-publicacion">
 					<div class="col">
 						<h3>Descripcion</h3>
-						<p th:text="${producto.descripcion}"></p>
+						<p th:text="${publicacion.producto.descripcion}"></p>
 					</div>
 				</div>
 				<!--**********************************COL1.CARACTERISTICAS*************************** -->
@@ -36,7 +47,7 @@
 					<div class="col">
 						<h3>Caracteristicas</h3>
 						<ul class="sin-vinietas row">
-							<li th:each="caracteristica : ${producto.caracteristicas}"
+							<li th:each="caracteristica : ${publicacion.producto.caracteristicas}"
 								class="col-md-6"
 							>
 								<div th:text="${caracteristica.tipo}"></div> <b
@@ -52,9 +63,9 @@
 				<!--************************COL2.INTRODUCCION************************************************ -->
 				<div class="row thumbnail-publicacion">
 					<div class="col">
-						<h3 th:text="${producto.publicacion.titulo}"></h3>
+						<h3 th:text="${publicacion.titulo}"></h3>
 						<h2>
-							<span>$</span> <span th:text="${producto.precio}"></span>
+							<span>$</span> <span th:text="${publicacion.producto.precio}"></span>
 						</h2>
 						<button type="button" class="btn btn-default">
 							<span><img
@@ -74,22 +85,13 @@
 					<!--**********************************COL2.VENDEDOR********************************* -->
 					<div class="col">
 						<h3>Informacion del Vendedor</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Eos excepturi sequi ratione officiis omnis laboriosam minus id in
-							fuga voluptates dolorem possimus nihil odit ea suscipit rem
-							voluptas nulla quisquam!</p>
+						
+						<div><b>Ubicacion</b> <span th:text="${publicacion.vendedor.ubicacion}"></span></div>
+						<div><b>Nombre</b> <span th:text="${publicacion.vendedor.nombre}"></span></div>						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		$(function() {
-			$('.mini-vertical-gallery').hover(function() {
-				var imgHovered = $(this).attr('src');
-				$('#main-image-gallery').attr('src', imgHovered);
-			});//cierra primer selector
-		});//cierra function selector
-	</script>
 </body>
 </html>

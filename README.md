@@ -1,6 +1,11 @@
 # Simple Snapshots
 ![alt text](https://raw.githubusercontent.com/danielchungara1/dch/master/snapshots/index.JPG)
 ![alt text](https://raw.githubusercontent.com/danielchungara1/dch/master/snapshots/publicacion.JPG)
+![alt text](https://raw.githubusercontent.com/danielchungara1/dch/master/diagramas/DC-part1.JPG)
+![alt text](https://raw.githubusercontent.com/danielchungara1/dch/master/diagramas/DC-part2.JPG)
+![alt text](https://raw.githubusercontent.com/danielchungara1/dch/master/diagramas/DER.JPG)
+![alt text](https://raw.githubusercontent.com/danielchungara1/dch/master/diagramas/DS1.JPG)
+
 
 # java-getting-started
 

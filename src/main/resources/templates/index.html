@@ -58,17 +58,19 @@
 		<div>
 			Basado en tu ultima visita<b>Ver historial</b>
 		</div>
-		<div th:each="producto : ${productos}"
+		<div th:each="publicacion : ${publicaciones}"
 			class="thumbnail thumbnail-publicacion inline-block"
 		>
-			<a th:href="@{/publicacion/(id_producto=${producto.id_producto})}">
-				<img th:src="${producto.imagenes.get(0).url}"
-				th:alt="${producto.imagenes.get(0).descripcion}"
+
+		
+			<a th:href="@{/publicacion/(id_vendedor=${publicacion.id_vendedor},id_publicacion=${publicacion.id_publicacion})}">
+				<img th:src="${publicacion.producto.imagenes.get(0).url}"
+				th:alt="${publicacion.producto.imagenes.get(0).descripcion}"
 				class="width5 height5"
 			>
 			</a>
 			<div class="caption bold-text md-text">
-				<span>$</span> <span th:text="${producto.precio}"></span>
+				<span>$</span> <span th:text="${publicacion.producto.precio}"></span>
 			</div>
 		</div>
 	</div>
