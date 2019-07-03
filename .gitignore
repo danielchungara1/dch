@@ -9,7 +9,6 @@ docs/tmp/
 docs/java-getting-started/
 docs/deploying-spring-boot-apps/
 bin/
-*.sql
 *.mwb
 *.bak
 docs technologies dch-ecommerce/
